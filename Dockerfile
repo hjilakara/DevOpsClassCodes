@@ -1,4 +1,4 @@
-FROM httpd
-ADD ./target/addressbook.war /usr/local/apache2/htdocs
-EXPOSE 80
-CMD ["httpd-foreground"] 
+FROM tomcat:9
+COPY ./target/addressbook.war /usr/local/tomcat/webapps
+EXPOSE 8080
+CMD  ["catalina.sh", "run"]
