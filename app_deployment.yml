@@ -4,22 +4,17 @@ metadata:
   name: myapp
 spec:
   replicas: 2
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
   selector:
     matchLabels:
       app: myapp
-    template:
-      metadata:
-        name: myapp
-        labels: 
-          app: myapp
-      spec:
-        containers:
-         - name: myapp
-           image: hjilakara/webapp
-           ports:
-           - containerPort: 8080
+  template:
+    metadata:
+      name: myapp
+      labels: 
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: hjilakara/webapp
+        ports:
+        - containerPort: 8080
